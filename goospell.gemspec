@@ -19,5 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency('rexml-expansion-fix')
 
-  gem.add_development_dependency('rspec')
+  gem.add_development_dependency('rake')
 end
