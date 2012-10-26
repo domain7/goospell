@@ -18,8 +18,57 @@ Or install it yourself as:
 
     $ gem install goospell
 
-Usage
------
+
+Commandline Usage
+-----------------
+
+    goospell "Thas sentnince iss spellleded awell rong"
+    ---
+    Thas:
+    - This
+    - Th as
+    - Th-as
+    - Thais
+    - Thaws
+    - Thad
+    sentnince:
+    - sentence
+    - sentience
+    - sentences
+    - sentencing
+    - sentience's
+    iss:
+    - is
+    - Isa
+    - Issi
+    - Issy
+    - OSS
+    - USS
+    spellleded:
+    - spelled
+    - pelleted
+    - spilled
+    - superseded
+    - secluded
+    awell:
+    - a well
+    - aw ell
+    - aw-ell
+    - awe ll
+    - awe-ll
+    - Ewell
+    rong:
+    - Ring
+    - ring
+    - tong
+    - wrong
+    - Rog
+
+    goospell 
+
+
+Ruby Usage
+----------
 
     Goospell::spell('Thas sentnince iss spellleded awell rong')
     #{"Thas"=>["This", "Th as", "Th-as", "Thais", "Thaws", "Thad"], "sentnince"=>["sentence", "sentience", "sentences", "sentencing", "sentience's"], "iss"=>["is", "Isa", "Issi", "Issy", "OSS", "USS"], "spellleded"=>["spelled", "pelleted", "spilled", "superseded", "secluded"], "awell"=>["a well", "aw ell", "aw-ell", "awe ll", "awe-ll", "Ewell"], "rong"=>["Ring", "ring", "tong", "wrong", "Rog"]}

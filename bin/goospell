@@ -37,7 +37,6 @@ if ARGV[0].nil?
 	puts "Nothing to check use --help for more information"
 else
 	result=Goospell::spell(ARGV[0], options[:lang])
-	puts "the format is #{options[:format]}"
 	case options[:format]
 	when :json
 		puts result

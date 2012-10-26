@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["shane@domain7.com"]
   gem.description   = %q{Spell checker that uses the undocumented Google Spell API}
   gem.summary       = %q{Spell checker that uses the undocumented Google Spell API}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/domain7/goospell"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
