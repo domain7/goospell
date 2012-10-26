@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  gem.add_runtime_dependency('to_xml')
+
   gem.add_dependency('rexml-expansion-fix')
 
   gem.add_development_dependency('rake')

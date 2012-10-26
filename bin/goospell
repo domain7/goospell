@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+require 'goospell'
+require 'yaml'
+require 'json'
+require 'to_xml'
+require 'optparse'
+
+options = {}
+
+optparse = OptionParser.new do|opts|
+	opts.banner = "Usage: goospell [options] text" 
+
+	options[:lang] = 'en'
+	opts.on( '--lang [LANG]', [:en, :fr, :es], 'Choose a language [en] fr es' ) do |l|
+		options[:lang] = l
+	end
+
+	options[:format] = 'yaml'
+	opts.on( '--format [FORMAT]', [:yaml, :json, :xml], 'Choose format [yaml] json xml' ) do |f|
+		options[:format] = f
+	end
+
+	opts.on_tail('--version', 'Show version') do
+		puts OptionParser::Version.join('.')
+		exit
+	end
+
+	opts.on( '-h', '--help', 'Display this screen' ) do
+		puts opts
+		exit
+	end
+end
+
+optparse.parse!
+
+if ARGV[0].nil?
+	puts "Nothing to check use --help for more information"
+else
+	result=Goospell::spell(ARGV[0], options[:lang])
+	puts "the format is #{options[:format]}"
+	case options[:format]
+	when :json
+		puts result
+	when :xml
+		puts result.to_xml
+	else
+		puts result.to_yaml
+	end
+end
