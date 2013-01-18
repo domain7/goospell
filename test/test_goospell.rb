@@ -11,4 +11,10 @@ class GoospellTest < Test::Unit::TestCase
 		corrections = Goospell::spell('teh')
 		assert corrections['teh'].include?('the')
 	end
+
+  def test_returns_empty_list_of_variants_if_none_found
+    example = 'm'*10
+    corrections = Goospell::spell(example)
+    assert corrections[example].empty?
+  end
 end
