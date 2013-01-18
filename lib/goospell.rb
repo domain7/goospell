@@ -30,7 +30,8 @@ module Goospell
       doc.elements.each('spellresult/c') do |correction|
         #string = "asdfasf tehes"
         #format is <c o="8" l="5">these  the theory</c>
-        out.merge!({ full_text[correction.attributes['o'].to_i,correction.attributes['l'].to_i] => correction.text.split("\t") })
+        variants = correction.text ? correction.text.split("\t") : []
+        out.merge!({ full_text[correction.attributes['o'].to_i,correction.attributes['l'].to_i] => variants })
       end
     end
     out
